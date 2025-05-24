@@ -1,0 +1,10 @@
+Subject: Exclusive $Discount Off - Just for You!
+
+Hi $FirstName,
+
+We're offering you a special $Discount discount on our $Product.
+
+Don't miss out-offer ends soon!
+
+Best,  
+Your Company Team
