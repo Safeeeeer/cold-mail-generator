@@ -3,7 +3,6 @@ from email.mime.text import MIMEText
 from string import Template
 import os
 from dotenv import load_dotenv # type: ignore
-import openai # type: ignore
 import ollama # type: ignore
 
 load_dotenv(dotenv_path="C:/Users/91956/Desktop/cold mail/log/cr.env")
@@ -12,10 +11,11 @@ EMAIL_ADDRESS=os.getenv("EMAIL_ADDRESS")
 EMAIL_PASSWORD=os.getenv("EMAIL_PASSWORD")
 #print("Email:", EMAIL_ADDRESS)
 #print("Password:", repr(EMAIL_PASSWORD))
-
+'''
 def read_template(filename):
     with open(filename,'r') as file:
         return Template(file.read())
+'''        
 def send_email(to_email, subject, body):
     msg = MIMEText(body, 'plain')
     msg['From'] = EMAIL_ADDRESS

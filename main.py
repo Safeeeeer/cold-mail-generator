@@ -2,14 +2,14 @@ import csv
 import os
 from datetime import datetime
 from emails import generate_email_llm
-from emails import read_template, send_email
+from emails import send_email #read_template --import this when you are not using the llm model for the customized template.
 
-TEMPLATE_PATH = 'template/dis.txt'
+#TEMPLATE_PATH = 'template/dis.txt'
 CSV_PATH = 'customer/customer.csv'
 LOG_FILE = 'log/cr.env'
 
 # Load template
-template = read_template(TEMPLATE_PATH)
+#template = read_template(TEMPLATE_PATH) (uncomment this wheh you import the read_template)
 
 # Open log file
 os.makedirs('logs', exist_ok=True)
