@@ -5,7 +5,7 @@ from emails import generate_email_llm
 from emails import send_email #read_template --import this when you are not using the llm model for the customized template.
 
 #TEMPLATE_PATH = 'template/dis.txt'
-CSV_PATH = 'customer/customer.csv'
+CSV_PATH = 'customer/customers.csv'
 LOG_FILE = 'log/cr.env'
 
 # Load template

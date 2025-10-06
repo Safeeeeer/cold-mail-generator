@@ -5,7 +5,7 @@ import os
 from dotenv import load_dotenv # type: ignore
 import ollama # type: ignore
 
-load_dotenv(dotenv_path="C:/Users/91956/Desktop/cold mail/log/cr.env")
+load_dotenv(dotenv_path="D:\cold mail\log\cr.env")
 
 EMAIL_ADDRESS=os.getenv("EMAIL_ADDRESS")
 EMAIL_PASSWORD=os.getenv("EMAIL_PASSWORD")
@@ -26,14 +26,29 @@ def send_email(to_email, subject, body):
         server.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
         server.send_message(msg)        
 
-def generate_email_llm(name, product, discount,sender='ABC Company'):
+def generate_email_llm(name, product, discount, sender='ABC Company', contact='1234567890'):
     prompt = f"""
-    Write a concise cold email to {name} offering a {discount}% discount on our product '{product}'.
-    The tone and format should be friendly but professional.Include a compelling subject line and soft call to action.give my name as safeer and contact number as 1234567890.the mail must be in single paragraph.not give the link of the programme tell them only to contact the number
-    - The sign-off must be next line: "Best regards,\n{sender}"
-    Return output in this format:
+    You are the HR system for {sender}. Write a professional, polite, and clear application acknowledgment email to a student named {name}.
+    The candidate have {discount} for the course {product}. Include the following
 
-    Subject: <subject line>
+    Requirements:
+    - starting with Add an engaging subject line (start with an emoji or symbol like 🎯, 💡, 🎁, or 🔥).
+    - Greet the candidate by like Dear {name}.
+    - Add a clear and compelling subject line
+    - Include a greeting and a short intro about the offer
+    - Explain the value/benefit of the product in 2-3 sentences
+    - Encourage the user to contact Safeer at {contact} to learn more or sign up
+    - No links or URLs
+    - Use line breaks and paragraph spacing (not a single paragraph)
+    - Do NOT include email headers or formatting like "To" or "From".
+
+    Best regards,  
+    {sender}  
+    {contact}
+
+    Format the response as:
+    Subject: Exciting Offer on the course{product}
+
     <email body>
     """
 
@@ -41,4 +56,4 @@ def generate_email_llm(name, product, discount,sender='ABC Company'):
         {"role": "user", "content": prompt}
     ])
 
-    return response['message']['content']   
+    return response['message']['content']

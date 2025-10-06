@@ -1,3 +1,4 @@
 FirstName,Email,Discount,Product
+safeer,safeermuhammed716@gmail.com,15%,ML Class
 Alice,alice@example.com,20%,AI Bootcamp
 Bob,bob@example.com,30%,Data Science Masterclass
